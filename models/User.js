@@ -6,25 +6,26 @@ const userSchema = new Schema(
       type: String,
       unique: true,
       required: true,
-      max_length: 50,
-      trimmed: true,
+      trim: true,
     },
     email: {
       type: String,
       required: true,
       unique: true,
-      //validate: [validateEmail, 'Please enter a valid email address'],
+      validate: [validateEmail, 'Please enter a valid email address'],
+      match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address'],
     },
     thoughts: [thoughtSchema],
     friends: [userSchema],
   },
   {
     toJSON: {
-      getters: true,
+        virtuals: true,
+        getters: true,
     },
   }
 );
-
+// virtual called friendCount that retrieves the length of the user's friends array field on query.
 const User = model('user', userSchema);
 
 module.exports = User;
