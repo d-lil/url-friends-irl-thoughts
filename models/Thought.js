@@ -1,4 +1,6 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
+const reactionSchema = require('./Reaction');
+const formatDate = require('../utils/formatDate')
 
 const thoughtSchema = new Schema(
   {
@@ -11,6 +13,7 @@ const thoughtSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
+      get: createdAt => formatDate(createdAt)
     },
     username: {
       type: String,
@@ -18,19 +21,24 @@ const thoughtSchema = new Schema(
     },
     reactions: [
       {
-       type: String,
-       required: true, 
+       type: Schema.Types.ObjectId,
+       ref: reactionSchema, 
       },
     ],
   },
   {
     toJSON: {
       virtuals: true,
+      getters: true
     },
     id: false,
   }
 );
 // Virtual called reactionCount to get the total count of reactions on retrieval
+thoughtSchema.virtual('reactionCount').get(function() {
+  return this.reactions.length;
+}
+);
 const Thought = model('thought', thoughtSchema);
 
 module.exports = Thought;

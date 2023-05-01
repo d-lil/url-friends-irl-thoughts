@@ -100,7 +100,7 @@ module.exports = {
     },
 
     // remove reaction
-    async removeReaction(req, res) {
+    async deleteReaction(req, res) {
         try {
             const thoughtData = await Thought.findOneAndUpdate(
                 { _id: params.thoughtId },

@@ -1,4 +1,4 @@
-const connection = require('./connection');
+const connection = require('../config/connection');
 const { User, Thought } = require('../models');
 
 connection.on('error', (err) => err);
@@ -30,6 +30,8 @@ connection.once('open', async () => {
 
     await Thought.collection.insertMany(thoughts);
 
-    console.table(users)
+    console.table(users);
     console.info('Users planted');
+    console.table(thoughts);
+    console.info('Thoughts planted');
 });
