@@ -71,6 +71,8 @@
 
   ---
   
+  If you have more questions, you can follow the steps in this video:
+  - https://drive.google.com/file/d/1rvsVTOWkkeV3o0GAog1pTOuAhsyRACWv/view
   ## License:
   The MIT License (MIT)
 
