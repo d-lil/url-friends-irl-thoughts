@@ -9,29 +9,28 @@ connection.once('open', async () => {
     await User.deleteMany({});
    
     const users = [
-            { username: 'Jim Jones', email: 'cultleader@ded.com' },
-            { username: 'Slim Thick', email: 'jigglestick@moneymaker.com' },
-            { username: 'Qt Pie', email: 'bigeyes@sokawaii.com' },
-            { username: 'Leon Kennedy', email: 'mrofficer@raccooncitypd.com' },
-            { username: 'Grey Poupon', email: 'yella@mustard.com' },
-            { username: 'Jennifer Lawrence', email: 'her@jlaw.com' },
-            { username: 'Cloud Strife', email: 'finalfantasy@seven.com' },
-        ];
-    const thoughts = [
-            { thoughtText: 'I love Kool-Aid', username: 'Jim Jones' },
-            { thoughtText: 'Wiggle-wittit, wiggle-wittit, wiggle-wittit', username: 'Slim Thick' },
-            { thoughtText: 'I look good in everything!!! (✿◠‿◠)', username: 'Qt Pie' },
-            { thoughtText: 'Where is everyone going? Bingo?', username: 'Leon Kennedy' },
-            { thoughtText: 'Pardon me...', username: 'Grey Poupon' },
-            { thoughtText: 'I volunteer as tribute!', username: 'Jennifer Lawrence' },
-            { thoughtText: 'You owe me a pizza', username: 'Cloud Strife' },
+            { username: 'JimJones666', email: 'cultleader@ded.com' },
+            { username: 'SlimThick420', email: 'jigglestick@moneymaker.com' },
+            { username: 'QtPie', email: 'bigeyes@sokawaii.com' },
+            { username: 'LeonKennedy', email: 'mrofficer@raccooncitypd.com' },
+            { username: 'Jennifer69Lawrence', email: 'her@jlaw.com' },
+            { username: 'CloudStrife7', email: 'finalfantasy@seven.com' },
         ];
     await User.collection.insertMany(users);
-
-    await Thought.collection.insertMany(thoughts);
-
     console.table(users);
     console.info('Users planted');
+
+    const thoughts = [
+            { thoughtText: 'I love Kool-Aid', username: 'JimJones666' },
+            { thoughtText: 'Wiggle-wittit, wiggle-wittit, wiggle-wittit', username: 'SlimThick420' },
+            { thoughtText: 'I look good in everything!!! (✿◠‿◠)', username: 'QtPie' },
+            { thoughtText: 'Where is everyone going? Bingo?', username: 'LeonKennedy' },
+            { thoughtText: 'I volunteer as tribute!', username: 'Jennifer69Lawrence' },
+            { thoughtText: 'You owe me a pizza', username: 'CloudStrife7' },
+        ];
+    await Thought.collection.insertMany(thoughts);
     console.table(thoughts);
     console.info('Thoughts planted');
+
+    process.exit(0);
 });
